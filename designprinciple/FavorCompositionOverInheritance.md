@@ -41,8 +41,7 @@ class Car(vehicleType: String, private val engine: Engine) : Vehicle(vehicleType
 ![isa-hasa-bytecode.png](../res/isa-hasa-bytecode.png)
 
 
-> **The full example** [FavorCompositionOverInheritance.kts](..%2F..%2F..%2F..%2FLibrary%2FApplication%20Support%2FGoogle%2FAndroidStudio2024.1%2Fscratches%2FFavorCompositionOverInheritance.kts)
-
+> **The full example** [FavorCompositionOverInheritance.kts](FavorCompositionOverInheritance.kts)
 
 ### Why Favour composition over inheritance?
 * **Flexibility:**\

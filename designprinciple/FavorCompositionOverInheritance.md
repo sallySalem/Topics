@@ -1,5 +1,4 @@
 # Object-Oriented Principle
-***
 
 ## **Favour composition over inheritance**
 
@@ -25,23 +24,43 @@ A design principle where classes implement polymorphism and reuse code by includ
 
 `A Car HAS-A Engine.`
 
+### Example 
+```kotlin
+class Car(vehicleType: String, private val engine: Engine) : Vehicle(vehicleType) {
+    fun startCar() {
+        println("Start Car")
+        showType() // The implementation is in the "Vehicle" base class
+        engine.start()
+//        engine.startEngine() // Error: Unresolved reference: startEngine. Use only funs from interface.
+    }
+}
+
+```
+
+**The byteCode for the example**
+![isa-hasa-bytecode.png](../res/isa-hasa-bytecode.png)
+
+
+> **The full example** [FavorCompositionOverInheritance.kts](..%2F..%2F..%2F..%2FLibrary%2FApplication%20Support%2FGoogle%2FAndroidStudio2024.1%2Fscratches%2FFavorCompositionOverInheritance.kts)
+
+
 ### Why Favour composition over inheritance?
 * **Flexibility:**\
-Composition provides the ability to change components without impacting the containing class, allowing modifications to a class’s behavior at runtime.
+  Composition provides the ability to change components without impacting the containing class, allowing modifications to a class’s behavior at runtime.
 
 * **Encapsulation:**\
-Composition maintains encapsulation by hiding internal details and exposing only necessary interfaces. In contrast, inheritance may expose the parent class's internals to the child class, potentially breaking encapsulation.
+  Composition maintains encapsulation by hiding internal details and exposing only necessary interfaces. In contrast, inheritance may expose the parent class's internals to the child class, potentially breaking encapsulation.
 
 * **Reusability:**\
-Composition allows components to be reused across different classes.
+  Composition allows components to be reused across different classes.
 
 * **Loose Coupling:**\
-Composition depends on well-defined interfaces for object composition, whereas inheritance creates a tight coupling between parent and child classes.
+  Composition depends on well-defined interfaces for object composition, whereas inheritance creates a tight coupling between parent and child classes.
 
 * **Avoiding the Fragile Base Class Problem:**\
-Composition, by relying on well-defined interfaces and contained objects, makes changes more controlled and predictable. Inheritance, on the other hand, can lead to unexpected behaviors since modifications to a base class might inadvertently affect all derived classes.
+  Composition, by relying on well-defined interfaces and contained objects, makes changes more controlled and predictable. Inheritance, on the other hand, can lead to unexpected behaviors since modifications to a base class might inadvertently affect all derived classes.
 
 
-**Conclusion**
+### **Conclusion**
 
 Favoring composition over inheritance provides greater flexibility, better encapsulation, and easier maintenance. It encourages the design of systems where components can be easily reused and replaced, promoting a more modular and adaptive codebase.
